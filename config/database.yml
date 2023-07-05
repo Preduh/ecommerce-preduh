@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: unicode
+  url: postgres://ecommerce_preduh_db_user:s78XHQZ1hgFveExIrgie7Hal8dEqFaUA@dpg-ciionqtph6erq6kagv70-a.oregon-postgres.render.com/ecommerce_preduh_db
+
+development:
+  <<: *default
+  database: ecommerce_development
+
+test:
+  <<: *default
+  database: ecommerce_test
+
+production:
+  <<: *default
+  database: ecommerce_production
